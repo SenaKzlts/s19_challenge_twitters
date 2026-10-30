@@ -1,0 +1,277 @@
+.home-feed {
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 275px;
+  margin-right: 350px;
+  max-width: 600px;
+  border-left: 1px solid #e1e8ed;
+  border-right: 1px solid #e1e8ed;
+}
+
+.home-header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e1e8ed;
+  padding: 16px 20px;
+  z-index: 100;
+}
+
+.home-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #14171a;
+}
+
+.feed-container {
+  padding: 0 20px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 18px;
+  color: #666;
+}
+
+.error-message {
+  background-color: #fce8e6;
+  color: #e0245e;
+  padding: 16px;
+  margin: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.no-tweets {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.no-tweets h2 {
+  margin: 0 0 10px 0;
+  color: #14171a;
+}
+
+.no-tweets p {
+  margin: 0;
+}
+
+.tweet-card {
+  border-bottom: 1px solid #e1e8ed;
+  padding: 16px;
+  transition: background-color 0.2s;
+}
+
+.tweet-card:hover {
+  background-color: #f7f9fa;
+}
+
+.tweet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.follow-button {
+  padding: 6px 16px;
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.follow-button:hover {
+  background-color: #0c85d0;
+}
+
+.follow-button.following {
+  background-color: #14171a;
+}
+
+.follow-button.following:hover {
+  background-color: #000;
+}
+
+.username {
+  font-weight: 700;
+  color: #14171a;
+}
+
+.tweet-date {
+  color: #657786;
+  font-size: 14px;
+}
+
+.tweet-content {
+  margin-bottom: 12px;
+}
+
+.tweet-content p {
+  margin: 0;
+  color: #14171a;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.tweet-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #657786;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.action-button:hover {
+  background-color: #e8f5fe;
+  color: #1da1f2;
+}
+
+.comment-button:hover {
+  background-color: #e8f5fe;
+  color: #1da1f2;
+}
+
+.retweet-button:hover {
+  background-color: #e8fce8;
+  color: #17bf63;
+}
+
+.retweet-button.retweeted {
+  color: #17bf63;
+}
+
+.like-button:hover {
+  background-color: #fce8e6;
+  color: #e0245e;
+}
+
+.like-button.liked {
+  color: #e0245e;
+}
+
+.action-count {
+  font-size: 12px;
+  margin-left: 4px;
+  color: #657786;
+}
+
+.comment-section {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e1e8ed;
+}
+
+.comment-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.comment-input:focus {
+  outline: none;
+  border-color: #1da1f2;
+}
+
+.comment-submit-button {
+  align-self: flex-end;
+  padding: 6px 16px;
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.comment-submit-button:hover {
+  background-color: #0c85d0;
+}
+
+.comments-list {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment-item {
+  padding: 8px 12px;
+  background-color: #f7f9fa;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.comment-user {
+  font-weight: 700;
+  color: #14171a;
+  margin-right: 8px;
+}
+
+.comment-text {
+  color: #14171a;
+}

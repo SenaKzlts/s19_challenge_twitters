@@ -1,0 +1,153 @@
+.right-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 350px;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid #e1e8ed;
+  background-color: #f7f9fa;
+  font-size: 15px;
+  outline: none;
+}
+
+.search-input:focus {
+  background-color: #ffffff;
+  border-color: #1da1f2;
+}
+
+.trending-section,
+.who-to-follow-section {
+  background-color: #f7f9fa;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.trending-section h3,
+.who-to-follow-section h3 {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #14171a;
+}
+
+.trend-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #e1e8ed;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.trend-item:last-child {
+  border-bottom: none;
+}
+
+.trend-item:hover {
+  background-color: #e8f5fe;
+  border-radius: 8px;
+  padding: 12px 8px;
+}
+
+.trend-category {
+  font-size: 13px;
+  color: #657786;
+  margin-bottom: 4px;
+}
+
+.trend-topic {
+  font-size: 16px;
+  font-weight: 700;
+  color: #14171a;
+  margin-bottom: 4px;
+}
+
+.trend-tweets {
+  font-size: 13px;
+  color: #657786;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.user-item:last-child {
+  border-bottom: none;
+}
+
+.user-avatar-small {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.user-info-small {
+  flex: 1;
+}
+
+.user-name-small {
+  font-weight: 700;
+  color: #14171a;
+  font-size: 15px;
+}
+
+.user-handle-small {
+  color: #657786;
+  font-size: 14px;
+}
+
+.follow-btn-small {
+  padding: 6px 16px;
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.follow-btn-small:hover {
+  background-color: #0c85d0;
+}
+
+.show-more {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #1da1f2;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.show-more:hover {
+  background-color: #e8f5fe;
+}

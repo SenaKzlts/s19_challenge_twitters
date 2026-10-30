@@ -1,24 +1,30 @@
 package com.example.twitter_challenge.Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @Table(schema = "public", name = "likes")
 public class Likes extends EntityBase{
 
-    //todo: teknik borc -> Tweet classi yazinca burasi ile oneToMany seklinde bagla
-    private Integer tweet_id;
+    @NotNull(message = "Tweet cannot be null")
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST},
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "tweet_id")
+    private Tweet tweet;
 
-
-    //todo: teknik borc -> User classi yazinca burasi ile oneToMany seklinde bagla
-    private Integer user_id;
-
-    //private User user;
-    //private Tweet tweet;
+    @NotNull(message = "User cannot be null")
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST},
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "user_id")
+    private User user;
 }
