@@ -1,6 +1,6 @@
 .home-feed {
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #000;
   display: flex;
 }
 
@@ -9,16 +9,16 @@
   margin-left: 275px;
   margin-right: 350px;
   max-width: 600px;
-  border-left: 1px solid #e1e8ed;
-  border-right: 1px solid #e1e8ed;
+  border-left: 1px solid #2f3336;
+  border-right: 1px solid #2f3336;
 }
 
 .home-header {
   position: sticky;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid #e1e8ed;
+  border-bottom: 1px solid #2f3336;
   padding: 16px 20px;
   z-index: 100;
 }
@@ -27,7 +27,7 @@
   margin: 0;
   font-size: 20px;
   font-weight: 700;
-  color: #14171a;
+  color: #fff;
 }
 
 .feed-container {
@@ -40,7 +40,7 @@
   align-items: center;
   min-height: 100vh;
   font-size: 18px;
-  color: #666;
+  color: #e7e9ea;
 }
 
 .error-message {
@@ -55,12 +55,12 @@
 .no-tweets {
   text-align: center;
   padding: 60px 20px;
-  color: #666;
+  color: #71767b;
 }
 
 .no-tweets h2 {
   margin: 0 0 10px 0;
-  color: #14171a;
+  color: #fff;
 }
 
 .no-tweets p {
@@ -68,13 +68,13 @@
 }
 
 .tweet-card {
-  border-bottom: 1px solid #e1e8ed;
+  border-bottom: 1px solid #2f3336;
   padding: 16px;
   transition: background-color 0.2s;
 }
 
 .tweet-card:hover {
-  background-color: #f7f9fa;
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
 .tweet-header {
@@ -136,11 +136,11 @@
 
 .username {
   font-weight: 700;
-  color: #14171a;
+  color: #fff;
 }
 
 .tweet-date {
-  color: #657786;
+  color: #71767b;
   font-size: 14px;
 }
 
@@ -150,7 +150,7 @@
 
 .tweet-content p {
   margin: 0;
-  color: #14171a;
+  color: #e7e9ea;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -170,48 +170,48 @@
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
-  color: #657786;
+  color: #71767b;
   transition: background-color 0.2s, color 0.2s;
 }
 
 .action-button:hover {
-  background-color: #e8f5fe;
-  color: #1da1f2;
+  background-color: rgba(29, 155, 240, 0.1);
+  color: #1d9bf0;
 }
 
 .comment-button:hover {
-  background-color: #e8f5fe;
-  color: #1da1f2;
+  background-color: rgba(29, 155, 240, 0.1);
+  color: #1d9bf0;
 }
 
 .retweet-button:hover {
-  background-color: #e8fce8;
-  color: #17bf63;
+  background-color: rgba(0, 186, 124, 0.1);
+  color: #00ba7c;
 }
 
 .retweet-button.retweeted {
-  color: #17bf63;
+  color: #00ba7c;
 }
 
 .like-button:hover {
-  background-color: #fce8e6;
-  color: #e0245e;
+  background-color: rgba(249, 24, 128, 0.1);
+  color: #f91880;
 }
 
 .like-button.liked {
-  color: #e0245e;
+  color: #f91880;
 }
 
 .action-count {
   font-size: 12px;
   margin-left: 4px;
-  color: #657786;
+  color: #71767b;
 }
 
 .comment-section {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid #e1e8ed;
+  border-top: 1px solid #2f3336;
 }
 
 .comment-input-wrapper {
@@ -223,22 +223,24 @@
 .comment-input {
   width: 100%;
   padding: 8px 12px;
-  border: 1px solid #e1e8ed;
+  border: 1px solid #2f3336;
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
   resize: vertical;
+  background-color: #000;
+  color: #fff;
 }
 
 .comment-input:focus {
   outline: none;
-  border-color: #1da1f2;
+  border-color: #1d9bf0;
 }
 
 .comment-submit-button {
   align-self: flex-end;
   padding: 6px 16px;
-  background-color: #1da1f2;
+  background-color: #1d9bf0;
   color: white;
   border: none;
   border-radius: 20px;
@@ -249,7 +251,7 @@
 }
 
 .comment-submit-button:hover {
-  background-color: #0c85d0;
+  background-color: #1a8cd8;
 }
 
 .comments-list {
@@ -261,17 +263,17 @@
 
 .comment-item {
   padding: 8px 12px;
-  background-color: #f7f9fa;
+  background-color: rgba(255, 255, 255, 0.03);
   border-radius: 8px;
   font-size: 14px;
 }
 
 .comment-user {
   font-weight: 700;
-  color: #14171a;
+  color: #fff;
   margin-right: 8px;
 }
 
 .comment-text {
-  color: #14171a;
+  color: #e7e9ea;
 }

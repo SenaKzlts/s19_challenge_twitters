@@ -11,12 +11,12 @@ function CreateTweet({ onTweetCreated }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!content.trim()) {
-      setError('Tweet cannot be empty');
+      setError('Tweet boş olamaz');
       return;
     }
 
     if (content.length > 280) {
-      setError('Tweet cannot exceed 280 characters');
+      setError('Tweet 280 karakteri geçemez');
       return;
     }
 
@@ -36,7 +36,7 @@ function CreateTweet({ onTweetCreated }) {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to create tweet');
+        throw new Error('Tweet oluşturulamadı');
       }
 
       const newTweet = await response.json();
@@ -45,7 +45,7 @@ function CreateTweet({ onTweetCreated }) {
         onTweetCreated(newTweet);
       }
     } catch (err) {
-      setError('Failed to create tweet');
+      setError('Tweet oluşturulamadı');
     } finally {
       setLoading(false);
     }
@@ -57,7 +57,7 @@ function CreateTweet({ onTweetCreated }) {
     <div className="create-tweet">
       <form onSubmit={handleSubmit} className="tweet-form">
         <textarea
-          placeholder="What's happening?"
+          placeholder="Neler oluyor?"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           className="tweet-input"
@@ -66,14 +66,14 @@ function CreateTweet({ onTweetCreated }) {
         />
         <div className="tweet-form-footer">
           <span className={`char-count ${remainingChars < 0 ? 'over-limit' : ''}`}>
-            {remainingChars} characters remaining
+            {remainingChars} karakter kaldı
           </span>
           <button
             type="submit"
             className="tweet-button"
             disabled={loading || !content.trim() || remainingChars < 0}
           >
-            {loading ? 'Tweeting...' : 'Tweet'}
+            {loading ? 'Tweetleniyor...' : 'Tweetle'}
           </button>
         </div>
         {error && <div className="error-message">{error}</div>}

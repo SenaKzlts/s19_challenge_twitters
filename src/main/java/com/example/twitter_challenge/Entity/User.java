@@ -1,6 +1,7 @@
 package com.example.twitter_challenge.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.example.twitter_challenge.Utils.Commons.Location;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -41,6 +42,7 @@ public class User extends EntityBase{
     private String banner;
 
     //tweets
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Tweet> tweets;
 

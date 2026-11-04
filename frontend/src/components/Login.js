@@ -23,16 +23,24 @@ function Login() {
         body: JSON.stringify({ email, password }),
       });
 
+      console.log('Response status:', response.status);
+
       if (!response.ok) {
-        throw new Error('Login failed');
+        const errorText = await response.text();
+        console.error('Login failed:', errorText);
+        throw new Error(errorText || 'Login failed');
       }
 
-      const token = await response.text();
-      localStorage.setItem('token', token);
+      const user = await response.json();
+      console.log('User received:', user);
+      localStorage.setItem('token', 'jwt_token_placeholder');
+      localStorage.setItem('userId', user.id);
       localStorage.setItem('userEmail', email);
+      localStorage.setItem('userName', user.userName);
       navigate('/');
     } catch (err) {
-      setError('Invalid email or password');
+      console.error('Login error:', err);
+      setError('Geçersiz e-posta veya şifre: ' + err.message);
     } finally {
       setLoading(false);
     }
@@ -42,13 +50,13 @@ function Login() {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          <h2>Login</h2>
-          <p>Welcome to Twitter</p>
+          <h2>Giriş Yap</h2>
+          <p>Twitter'a Hoş Geldiniz</p>
         </div>
         <form onSubmit={handleLogin} className="login-form">
           <input
             type="email"
-            placeholder="Email"
+            placeholder="E-posta"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="login-input"
@@ -56,7 +64,7 @@ function Login() {
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Şifre"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="login-input"
@@ -64,11 +72,11 @@ function Login() {
           />
           {error && <div className="error-message">{error}</div>}
           <button type="submit" className="login-button" disabled={loading}>
-            {loading ? 'Logging in...' : 'Login'}
+            {loading ? 'Giriş yapılıyor...' : 'Giriş Yap'}
           </button>
         </form>
         <div className="login-footer">
-          <p>Don't have an account? <a href="/register">Sign up</a></p>
+          <p>Hesabınız yok mu? <a href="/register">Kayıt Ol</a></p>
         </div>
       </div>
     </div>

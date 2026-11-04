@@ -23,39 +23,39 @@ function Sidebar() {
         <nav className="sidebar-nav">
           <button className="nav-item active" onClick={() => navigate('/')}>
             <span className="nav-icon">🏠</span>
-            <span className="nav-text">Home</span>
+            <span className="nav-text">Ana Sayfa</span>
           </button>
-          <button className="nav-item">
+          <button className="nav-item" onClick={() => navigate('/explore')}>
             <span className="nav-icon">🔍</span>
-            <span className="nav-text">Explore</span>
+            <span className="nav-text">Keşfet</span>
           </button>
-          <button className="nav-item">
+          <button className="nav-item" onClick={() => navigate('/notifications')}>
             <span className="nav-icon">🔔</span>
-            <span className="nav-text">Notifications</span>
+            <span className="nav-text">Bildirimler</span>
           </button>
-          <button className="nav-item">
+          <button className="nav-item" onClick={() => navigate('/messages')}>
             <span className="nav-icon">✉️</span>
-            <span className="nav-text">Messages</span>
+            <span className="nav-text">Mesajlar</span>
           </button>
-          <button className="nav-item">
+          <button className="nav-item" onClick={() => navigate('/bookmarks')}>
             <span className="nav-icon">📑</span>
-            <span className="nav-text">Bookmarks</span>
+            <span className="nav-text">Yer İşaretleri</span>
           </button>
-          <button className="nav-item">
+          <button className="nav-item" onClick={() => navigate('/profile')}>
             <span className="nav-icon">👤</span>
-            <span className="nav-text">Profile</span>
+            <span className="nav-text">Profil</span>
           </button>
         </nav>
 
-        <button className="tweet-button-sidebar">Tweet</button>
+        <button className="tweet-button-sidebar">Tweetle</button>
 
         <div className="sidebar-user">
           <div className="user-avatar">
             <span>{userName ? userName.charAt(0).toUpperCase() : 'U'}</span>
           </div>
           <div className="user-details">
-            <span className="user-name">{userName || 'User'}</span>
-            <span className="user-handle">@{userName || 'user'}</span>
+            <span className="user-name">{userName || 'Kullanıcı'}</span>
+            <span className="user-handle">@{userName || 'kullanici'}</span>
           </div>
           <button className="logout-icon" onClick={handleLogout}>
             🚪

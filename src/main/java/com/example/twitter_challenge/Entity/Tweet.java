@@ -23,8 +23,8 @@ public class Tweet extends EntityBase{
 //    //todo : teknik borc-> user classini bagla
 //    private Long user_id;
 
-    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST},
-            fetch =FetchType.LAZY
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE},
+            fetch = FetchType.LAZY
     )
     @JoinColumn(name = "user_id")
     private User user;
@@ -33,7 +33,7 @@ public class Tweet extends EntityBase{
     private Location location;
 
     //retweet
-    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST},
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE},
             fetch = FetchType.LAZY
     )
     @JoinColumn(name = "parent_tweet_id")

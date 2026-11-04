@@ -4,8 +4,8 @@
   top: 0;
   width: 275px;
   height: 100vh;
-  background-color: #ffffff;
-  border-right: 1px solid #e1e8ed;
+  background-color: #000;
+  border-right: 1px solid #2f3336;
   padding: 0 16px;
   display: flex;
   flex-direction: column;
@@ -46,11 +46,11 @@
   cursor: pointer;
   transition: background-color 0.2s;
   font-size: 20px;
-  color: #14171a;
+  color: #fff;
 }
 
 .nav-item:hover {
-  background-color: #e8f5fe;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav-item.active {
@@ -68,7 +68,7 @@
 .tweet-button-sidebar {
   margin-top: 16px;
   padding: 16px;
-  background-color: #1da1f2;
+  background-color: #1d9bf0;
   color: white;
   border: none;
   border-radius: 30px;
@@ -80,7 +80,7 @@
 }
 
 .tweet-button-sidebar:hover {
-  background-color: #0c85d0;
+  background-color: #1a8cd8;
 }
 
 .sidebar-user {
@@ -96,13 +96,13 @@
 }
 
 .sidebar-user:hover {
-  background-color: #e8f5fe;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .user-avatar {
   width: 40px;
   height: 40px;
-  background-color: #1da1f2;
+  background-color: #1d9bf0;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -120,12 +120,12 @@
 
 .user-name {
   font-weight: 700;
-  color: #14171a;
+  color: #fff;
   font-size: 15px;
 }
 
 .user-handle {
-  color: #657786;
+  color: #71767b;
   font-size: 14px;
 }
 
@@ -140,5 +140,5 @@
 }
 
 .logout-icon:hover {
-  background-color: #e8f5fe;
+  background-color: rgba(255, 255, 255, 0.1);
 }

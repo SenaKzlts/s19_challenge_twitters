@@ -35,7 +35,7 @@ function Register() {
       localStorage.setItem('userName', userName);
       navigate('/');
     } catch (err) {
-      setError(err.message || 'Registration failed. Email or username may already exist.');
+      setError(err.message || 'Kayıt başarısız. E-posta veya kullanıcı adı zaten kullanımda olabilir.');
     } finally {
       setLoading(false);
     }
@@ -45,13 +45,13 @@ function Register() {
     <div className="register-container">
       <div className="register-card">
         <div className="register-header">
-          <h2>Sign up</h2>
-          <p>Join Twitter today</p>
+          <h2>Kayıt Ol</h2>
+          <p>Bugün Twitter'a Katılın</p>
         </div>
         <form onSubmit={handleRegister} className="register-form">
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Kullanıcı Adı"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             className="register-input"
@@ -60,7 +60,7 @@ function Register() {
           />
           <input
             type="email"
-            placeholder="Email"
+            placeholder="E-posta"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="register-input"
@@ -68,7 +68,7 @@ function Register() {
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Şifre"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="register-input"
@@ -77,11 +77,11 @@ function Register() {
           />
           {error && <div className="error-message">{error}</div>}
           <button type="submit" className="register-button" disabled={loading}>
-            {loading ? 'Creating account...' : 'Sign up'}
+            {loading ? 'Hesap oluşturuluyor...' : 'Kayıt Ol'}
           </button>
         </form>
         <div className="register-footer">
-          <p>Already have an account? <a href="/login">Login</a></p>
+          <p>Zaten hesabınız var mı? <a href="/login">Giriş Yap</a></p>
         </div>
       </div>
     </div>

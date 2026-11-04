@@ -1,157 +1,459 @@
-# Twitter API Challenge
+# Twitter Clone - Full Stack Application
 
-A Spring Boot backend with React frontend implementing Twitter-like functionality.
+A complete Twitter-like social media application built with Spring Boot backend and React frontend with PostgreSQL database. This project demonstrates modern full-stack development practices including RESTful APIs, authentication, and responsive UI design.
 
-## Project Structure
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-green)
+![React](https://img.shields.io/badge/React-18-blue)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue)
+![Docker](https://img.shields.io/badge/Docker-Ready-blue)
 
-- **Backend**: Spring Boot application running on port 3000
-- **Frontend**: React application running on port 3200
-- **Database**: PostgreSQL
+## 📋 Table of Contents
 
-## Backend Setup
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Database Schema](#database-schema)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+
+## ✨ Features
+
+### Authentication
+- User registration with validation
+- User login with email/password
+- Session management with localStorage
+- Protected routes
+
+### Tweet Functionality
+- Create tweets with 280 character limit
+- View home feed with all tweets
+- Like/unlike tweets with real-time updates
+- Retweet functionality
+- Comment on tweets
+- Delete own tweets
+
+### User Features
+- Follow/unfollow users
+- View user profiles
+- User statistics (tweets, followers, following)
+- Bookmarked tweets
+
+### UI/UX
+- Modern dark theme design
+- Responsive layout
+- Sidebar navigation
+- Real-time interactions
+- Turkish language support
+- Twitter-like interface
+
+## 🛠 Tech Stack
+
+### Backend
+- **Java 21** - Programming language
+- **Spring Boot 3.x** - Application framework
+- **Spring Data JPA** - ORM
+- **Spring Security** - Security framework
+- **PostgreSQL** - Database
+- **Maven** - Build tool
+- **Lombok** - Reduce boilerplate code
+- **Jakarta Validation** - Input validation
+
+### Frontend
+- **React 18** - UI library
+- **React Router** - Navigation
+- **Axios** - HTTP client (fetch API)
+- **CSS3** - Styling with custom dark theme
+
+### DevOps
+- **Docker** - Containerization
+- **Docker Compose** - Multi-container orchestration
+- **pgAdmin** - Database management
+
+## 📁 Project Structure
+
+```
+s19_challenge_twitters/
+├── src/
+│   ├── main/
+│   │   ├── java/com/example/twitter_challenge/
+│   │   │   ├── Config/          # Configuration classes
+│   │   │   ├── Controller/      # REST controllers
+│   │   │   ├── DTO/             # Data Transfer Objects
+│   │   │   ├── Entity/          # JPA entities
+│   │   │   ├── Exception/       # Custom exceptions
+│   │   │   ├── Repository/      # JPA repositories
+│   │   │   ├── Service/         # Business logic
+│   │   │   └── Utils/           # Utility classes
+│   │   └── resources/
+│   │       └── application.properties
+│   └── test/                    # Unit tests
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/          # React components
+│   │   ├── App.js              # Main app component
+│   │   ├── index.js            # Entry point
+│   │   └── index.css           # Global styles
+│   └── package.json
+├── docker-compose.yml
+├── Dockerfile
+├── pom.xml
+└── README.md
+```
+
+## 🚀 Installation
+
+### Prerequisites
+
+- Docker and Docker Compose (recommended)
+- OR Java 21, Maven, Node.js, npm, PostgreSQL
 
 ### Option 1: Docker (Recommended)
 
-#### Prerequisites
-- Docker
-- Docker Compose
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd s19_challenge_twitters
+```
 
-#### Running with Docker
+2. Start all services:
 ```bash
 docker-compose up -d
 ```
 
 This will start:
-- **PostgreSQL** database on port 5433 (mapped to container port 5432)
-- **Spring Boot app** on port 3000 (mapped to container port 8080)
-- **pgAdmin** on port 5050 for database management
+- **PostgreSQL** on port 5433
+- **Spring Boot API** on port 3000
+- **React Frontend** on port 3200
+- **pgAdmin** on port 5050
 
-#### Stopping Docker
-```bash
-docker-compose down
-```
-
-#### Database Access via pgAdmin
-- URL: http://localhost:5050
-- Email: admin@example.com
-- Password: admin123
-- Host: postgres
-- Port: 5432
-- Database: twitter_db
-- Username: twitter_user
-- Password: twitter_password
+3. Access the application:
+- Frontend: http://localhost:3200
+- Backend API: http://localhost:3000
+- pgAdmin: http://localhost:5050
 
 ### Option 2: Local Setup
 
-#### Prerequisites
-- Java 21
-- Maven
-- PostgreSQL
+#### Backend Setup
 
-#### Configuration
-The database configuration is in `src/main/resources/application.properties`:
+1. Configure PostgreSQL database:
+```sql
+CREATE DATABASE twitter_db;
+CREATE USER twitter_user WITH PASSWORD 'twitter_password';
+GRANT ALL PRIVILEGES ON DATABASE twitter_db TO twitter_user;
+```
+
+2. Update `src/main/resources/application.properties`:
 ```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/twitter_db
 spring.datasource.username=twitter_user
 spring.datasource.password=twitter_password
 ```
 
-Update these values to match your PostgreSQL setup.
-
-#### Running the Backend
+3. Run the backend:
 ```bash
 mvn spring-boot:run
 ```
 
-The backend will start on `http://localhost:3000`
+#### Frontend Setup
 
-## Frontend Setup
-
-### Prerequisites
-- Node.js
-- npm
-
-### Installation
+1. Install dependencies:
 ```bash
 cd frontend
 npm install
 ```
 
-### Running the Frontend
+2. Start the frontend:
 ```bash
 npm start
 ```
 
-The frontend will start on `http://localhost:3200`
+## 📖 Usage
 
-## API Endpoints
+### Test Accounts
+
+The application initializes with sample users (password: `password123`):
+
+| Email | Username | Bio |
+|-------|----------|-----|
+| dev@twitter.com | twittergelistirici | Resmi Twitter Geliştirici Hesabı |
+| news@tech.com | teknolojihaberleri | En son teknoloji haberleri ve güncellemeler |
+| code@life.com | kodhayati | Programlama ipuçları ve püf noktaları |
+
+### Navigation
+
+- **Ana Sayfa (Home)** - View all tweets and create new ones
+- **Keşfet (Explore)** - Trending topics and suggested users
+- **Bildirimler (Notifications)** - Likes, retweets, and follows
+- **Mesajlar (Messages)** - Direct messages
+- **Yer İşaretleri (Bookmarks)** - Saved tweets
+- **Profil (Profile)** - User profile and statistics
+
+## 🔌 API Documentation
 
 ### Authentication
-- `POST /auth/register` - Register a new user
-- `POST /auth/login` - Login a user
+
+#### Register User
+```http
+POST /auth/register
+Content-Type: application/json
+
+{
+  "userName": "string",
+  "email": "string",
+  "password": "string"
+}
+```
+
+#### Login User
+```http
+POST /auth/login
+Content-Type: application/json
+
+{
+  "email": "string",
+  "password": "string"
+}
+```
 
 ### Tweets
-- `GET /tweet` - Get all tweets (home feed)
-- `POST /tweet` - Create a tweet
-- `GET /tweet/findByUserId?userId={id}` - Get all tweets by user ID
-- `GET /tweet/findById?id={id}` - Get tweet by ID
-- `PUT /tweet/{id}?userId={id}` - Update a tweet (only owner)
-- `DELETE /tweet/{id}?userId={id}` - Delete a tweet (only owner)
+
+#### Get All Tweets
+```http
+GET /tweet
+```
+
+#### Create Tweet
+```http
+POST /tweet
+Content-Type: application/json
+
+{
+  "content": "string",
+  "user": { "id": number }
+}
+```
+
+#### Get Tweets by User
+```http
+GET /tweet/findByUserId?userId={id}
+```
+
+#### Delete Tweet
+```http
+DELETE /tweet/{id}?userId={id}
+```
 
 ### Comments
-- `GET /comment/findByTweetId?tweetId={id}` - Get all comments for a tweet
-- `POST /comment` - Create a comment
-- `PUT /comment/{id}?userId={id}` - Update a comment (only owner)
-- `DELETE /comment/{id}?userId={id}` - Delete a comment (owner or tweet owner)
+
+#### Get Comments by Tweet
+```http
+GET /comment/findByTweetId?tweetId={id}
+```
+
+#### Create Comment
+```http
+POST /comment
+Content-Type: application/json
+
+{
+  "commentText": "string",
+  "tweet": { "id": number },
+  "user": { "id": number }
+}
+```
 
 ### Likes
-- `GET /like/findByTweetId?tweetId={id}` - Get all likes for a tweet
-- `POST /like` - Like a tweet
-- `POST /dislike?userId={id}&tweetId={id}` - Remove a like
+
+#### Get Likes by Tweet
+```http
+GET /like/findByTweetId?tweetId={id}
+```
+
+#### Like Tweet
+```http
+POST /like
+Content-Type: application/json
+
+{
+  "tweet": { "id": number },
+  "user": { "id": number }
+}
+```
+
+#### Unlike Tweet
+```http
+POST /dislike?userId={id}&tweetId={id}
+```
 
 ### Retweets
-- `POST /retweet` - Retweet a tweet
-- `DELETE /retweet/{id}` - Delete a retweet
+
+#### Retweet
+```http
+POST /retweet
+Content-Type: application/json
+
+{
+  "originalTweet": { "id": number },
+  "user": { "id": number }
+}
+```
+
+#### Delete Retweet
+```http
+DELETE /retweet/{id}
+```
 
 ### Followers
-- `POST /api/followers/follow?followerId={id}&followingId={id}` - Follow a user
-- `POST /api/followers/unfollow?followerId={id}&followingId={id}` - Unfollow a user
-- `GET /api/followers` - Get all followers
-- `GET /api/followers/{id}` - Get follower by ID
 
-## CORS Configuration
+#### Follow User
+```http
+POST /api/followers/follow?followerId={id}&followingId={id}
+```
 
-CORS is configured to allow requests from `http://localhost:3200` (the React frontend). This resolves the CORS error that would occur when the frontend tries to access the backend API.
+#### Unfollow User
+```http
+POST /api/followers/unfollow?followerId={id}&followingId={id}
+```
 
-## Running Tests
+## 🗄 Database Schema
 
-Run the unit tests:
+### Tables
+
+- **users** - User accounts
+- **tweets** - Tweet content
+- **comments** - Tweet comments
+- **likes** - Tweet likes
+- **retweets** - Tweet retweets
+- **followers** - User follow relationships
+- **bookmarks** - Saved tweets
+- **statistics** - User statistics
+
+### Key Relationships
+
+- User → Tweets (One-to-Many)
+- User → Followers (Many-to-Many)
+- Tweet → Comments (One-to-Many)
+- Tweet → Likes (One-to-Many)
+- Tweet → Retweets (One-to-Many)
+
+## 🧪 Testing
+
+### Backend Tests
+
+Run all unit tests:
 ```bash
 mvn test
 ```
 
-## Features Implemented
+Run specific test class:
+```bash
+mvn test -Dtest=AuthServiceTest
+```
 
-### Backend
-- ✅ Entity validation with Jakarta Validation
-- ✅ Controller/Service/Repository layered architecture
-- ✅ Global Exception Handling
-- ✅ Spring Security with basic configuration
-- ✅ Authorization logic (only owners can update/delete their content)
-- ✅ CORS configuration for React frontend
-- ✅ Unit tests for TweetService, AuthService, and CommentsService
-- ✅ GET endpoints for fetching all tweets, comments, and likes
-- ✅ Follow/Unfollow functionality
+### Frontend Testing
 
-### Frontend
-- ✅ React Router for navigation between pages
-- ✅ Login and Register pages with authentication
-- ✅ Home Feed with all tweets
-- ✅ Tweet creation with character limit (280)
-- ✅ Like/Unlike functionality with visual feedback
-- ✅ Comment functionality with inline input and display
-- ✅ Retweet functionality with visual feedback
-- ✅ Follow/Unfollow users from tweet cards
-- ✅ Twitter-like modern UI with sidebar navigation
-- ✅ Responsive design with Twitter color scheme
-- ✅ Real-time updates (likes, comments, retweets)
+The frontend can be tested manually by:
+1. Opening http://localhost:3200
+2. Registering a new account
+3. Creating tweets
+4. Interacting with other tweets (like, comment, retweet)
+5. Testing navigation between pages
+
+## 🐳 Docker Configuration
+
+### Services
+
+| Service | Port | Description |
+|---------|------|-------------|
+| postgres | 5433 | PostgreSQL database |
+| app | 3000 | Spring Boot backend |
+| pgadmin | 5050 | Database management UI |
+
+### Environment Variables
+
+```yaml
+POSTGRES_DB: twitter_db
+POSTGRES_USER: twitter_user
+POSTGRES_PASSWORD: twitter_password
+SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/twitter_db
+SPRING_DATASOURCE_USERNAME: twitter_user
+SPRING_DATASOURCE_PASSWORD: twitter_password
+```
+
+## 📦 Deployment
+
+### Docker Deployment
+
+```bash
+docker-compose up -d --build
+```
+
+### Stopping Services
+
+```bash
+docker-compose down
+```
+
+### Viewing Logs
+
+```bash
+docker-compose logs -f app
+```
+
+## 🏗 Architecture
+
+### Backend Architecture
+
+- **Controller Layer** - REST API endpoints
+- **Service Layer** - Business logic
+- **Repository Layer** - Data access with JPA
+- **Entity Layer** - Database models
+- **Exception Handling** - Global error handling
+- **Security** - Spring Security configuration
+
+### Frontend Architecture
+
+- **Component-based** - Reusable React components
+- **State Management** - React hooks (useState, useEffect)
+- **Routing** - React Router for navigation
+- **API Integration** - Fetch API for backend communication
+- **Styling** - CSS modules with dark theme
+
+## 🎨 UI Features
+
+- Dark theme design
+- Responsive layout
+- Twitter-like color scheme (#1d9bf0 primary)
+- Smooth animations and transitions
+- Real-time updates
+- Turkish language interface
+- Modern card-based layout
+
+## 🔐 Security
+
+- Password encryption with BCrypt
+- Input validation with Jakarta Validation
+- CORS configuration for frontend-backend communication
+- Authorization checks (users can only modify their own content)
+- SQL injection prevention with JPA
+
+## 📝 License
+
+This project is created for educational purposes.
+
+## 👨‍💻 Author
+
+Developed as a full-stack project demonstrating modern web development practices.
+
+## 🙏 Acknowledgments
+
+- Twitter for the design inspiration
+- Spring Boot team for the excellent framework
+- React team for the amazing UI library
+

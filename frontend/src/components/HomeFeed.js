@@ -82,7 +82,7 @@ function HomeFeed() {
       }
       setComments(commentsData);
     } catch (err) {
-      setError('Failed to load tweets');
+      setError('Tweetler yüklenemedi');
     } finally {
       setLoading(false);
     }
@@ -223,7 +223,7 @@ function HomeFeed() {
   };
 
   if (loading) {
-    return <div className="loading-container">Loading...</div>;
+    return <div className="loading-container">Yükleniyor...</div>;
   }
 
   return (
@@ -231,7 +231,7 @@ function HomeFeed() {
       <Sidebar />
       <div className="main-content">
         <header className="home-header">
-          <h1>Home</h1>
+          <h1>Ana Sayfa</h1>
         </header>
         
         <div className="feed-container">
@@ -241,8 +241,8 @@ function HomeFeed() {
           
           {tweets.length === 0 ? (
             <div className="no-tweets">
-              <h2>No tweets yet</h2>
-              <p>Be the first to tweet!</p>
+              <h2>Henüz tweet yok</h2>
+              <p>İlk tweeti sen at!</p>
             </div>
           ) : (
             tweets.map((tweet) => (
@@ -264,7 +264,7 @@ function HomeFeed() {
                       className={`follow-button ${followingUsers.has(tweet.user?.id) ? 'following' : ''}`}
                       onClick={() => handleFollow(tweet.user?.id)}
                     >
-                      {followingUsers.has(tweet.user?.id) ? 'Following' : 'Follow'}
+                      {followingUsers.has(tweet.user?.id) ? 'Takip Ediliyor' : 'Takip Et'}
                     </button>
                   )}
                 </div>
@@ -277,7 +277,7 @@ function HomeFeed() {
                     onClick={() => toggleCommentInput(tweet.id)}
                   >
                     <span>💬</span>
-                    <span>Comment</span>
+                    <span>Yorum Yap</span>
                     {comments[tweet.id] && comments[tweet.id].length > 0 && (
                       <span className="action-count">{comments[tweet.id].length}</span>
                     )}
@@ -287,7 +287,7 @@ function HomeFeed() {
                     onClick={() => handleRetweet(tweet.id)}
                   >
                     <span>🔄</span>
-                    <span>{retweetedTweets.has(tweet.id) ? 'Retweeted' : 'Retweet'}</span>
+                    <span>{retweetedTweets.has(tweet.id) ? 'Retweetlendi' : 'Retweet'}</span>
                   </button>
                   <button 
                     className={`action-button like-button ${likedTweets.has(tweet.id) ? 'liked' : ''}`}
@@ -302,7 +302,7 @@ function HomeFeed() {
                   <div className="comment-section">
                     <div className="comment-input-wrapper">
                       <textarea
-                        placeholder="Write a comment..."
+                        placeholder="Yorum yaz..."
                         value={commentText[tweet.id] || ''}
                         onChange={(e) => setCommentText(prev => ({ ...prev, [tweet.id]: e.target.value }))}
                         className="comment-input"
@@ -312,7 +312,7 @@ function HomeFeed() {
                         className="comment-submit-button"
                         onClick={() => handleComment(tweet.id)}
                       >
-                        Reply
+                        Gönder
                       </button>
                     </div>
                     {comments[tweet.id] && comments[tweet.id].length > 0 && (

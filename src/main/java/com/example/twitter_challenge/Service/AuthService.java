@@ -32,7 +32,7 @@ public class AuthService {
         return userRepository.save(user);
     }
 
-    public String login(LoginRequest loginRequest) {
+    public User login(LoginRequest loginRequest) {
         User user = userRepository.findByEmail(loginRequest.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -40,6 +40,6 @@ public class AuthService {
             throw new RuntimeException("Invalid password");
         }
 
-        return "jwt_token_placeholder";
+        return user;
     }
 }

@@ -19,23 +19,23 @@ function RightSidebar() {
   return (
     <div className="right-sidebar">
       <div className="search-bar">
-        <input type="text" placeholder="Search Twitter" className="search-input" />
+        <input type="text" placeholder="Twitter'da Ara" className="search-input" />
       </div>
 
       <div className="trending-section">
-        <h3>Trends for you</h3>
+        <h3>Sizin İçin Gündem</h3>
         {trendingTopics.map((trend, index) => (
           <div key={index} className="trend-item">
             <div className="trend-category">{trend.category}</div>
             <div className="trend-topic">{trend.topic}</div>
-            <div className="trend-tweets">{trend.tweets} tweets</div>
+            <div className="trend-tweets">{trend.tweets} tweet</div>
           </div>
         ))}
-        <button className="show-more">Show more</button>
+        <button className="show-more">Daha fazla göster</button>
       </div>
 
       <div className="who-to-follow-section">
-        <h3>Who to follow</h3>
+        <h3>Kimi Takip Etmeli</h3>
         {suggestedUsers.map((user, index) => (
           <div key={index} className="user-item">
             <div className="user-avatar-small">
@@ -45,10 +45,10 @@ function RightSidebar() {
               <div className="user-name-small">{user.name}</div>
               <div className="user-handle-small">{user.handle}</div>
             </div>
-            <button className="follow-btn-small">Follow</button>
+            <button className="follow-btn-small">Takip Et</button>
           </div>
         ))}
-        <button className="show-more">Show more</button>
+        <button className="show-more">Daha fazla göster</button>
       </div>
     </div>
   );

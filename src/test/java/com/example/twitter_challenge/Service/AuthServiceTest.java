@@ -85,14 +85,15 @@ public class AuthServiceTest {
     }
 
     @Test
-    void login_WhenCredentialsValid_ShouldReturnToken() {
+    void login_WhenCredentialsValid_ShouldReturnUser() {
         when(userRepository.findByEmail("test@example.com")).thenReturn(Optional.of(user));
         when(passwordEncoder.matches("password123", "encodedPassword")).thenReturn(true);
 
-        String result = authService.login(loginRequest);
+        User result = authService.login(loginRequest);
 
         assertNotNull(result);
-        assertEquals("jwt_token_placeholder", result);
+        assertEquals("testuser", result.getUserName());
+        assertEquals("test@example.com", result.getEmail());
     }
 
     @Test
